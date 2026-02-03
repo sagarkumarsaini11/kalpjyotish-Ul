@@ -1,4 +1,3 @@
-// src/components/Navbar.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,8 +7,9 @@ import { GiSun } from "react-icons/gi";
 import { FaHome, FaShoppingCart } from "react-icons/fa";
 import { BsStars, BsChatDots } from "react-icons/bs";
 import { IoClose, IoChatbubblesOutline } from "react-icons/io5";
+import { FaUserCircle } from "react-icons/fa";
 
-import PromotionModal from "./PromotionModal";
+import AuthModal from "./AuthModal";
 import "./Navbar.css";
 
 const Path = (props) => (
@@ -24,13 +24,13 @@ const Path = (props) => (
 
 const Navbar = ({ onSignupClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showPromoModal, setShowPromoModal] = useState(false);
+  const [showAuthModal, setAuthModal] = useState(false);
   const userMenuRef = useRef(null);
 
   const toggleMobileMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMobileMenu = () => setIsMenuOpen(false);
-  const openPromoModal = () => setShowPromoModal(true);
-  const closePromoModal = () => setShowPromoModal(false);
+  const openAuthModal = () => setAuthModal(true);
+  const closeAuthModal = () => setAuthModal(false);
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
@@ -85,10 +85,10 @@ const Navbar = ({ onSignupClick }) => {
           <li className="promo-desktop">
             <button
               className="promo-button"
-              onClick={openPromoModal}
+              onClick={openAuthModal}
               title="Promotional Offers"
             >
-              <IoChatbubblesOutline size={22} />
+              <FaUserCircle size={32} />
             </button>
           </li>
         </ul>
@@ -97,7 +97,7 @@ const Navbar = ({ onSignupClick }) => {
         <div className="mobile-icons">
           <button
             className="promo-button promo-mobile"
-            onClick={openPromoModal}
+            onClick={openAuthModal}
             title="Promotional Offers"
           >
             <IoChatbubblesOutline size={22} />
@@ -182,7 +182,7 @@ const Navbar = ({ onSignupClick }) => {
 
       {/* ✅ Promotion Modal */}
       <AnimatePresence>
-        {showPromoModal && <PromotionModal onClose={closePromoModal} />}
+        {showAuthModal && <AuthModal onClose={closeAuthModal} />}
       </AnimatePresence>
     </>
   );

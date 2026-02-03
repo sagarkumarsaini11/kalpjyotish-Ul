@@ -12,17 +12,19 @@ import 'swiper/css/autoplay';
 
 // Import Components and Pages
 import Navbar from './components/Navbar';
-import HomePage from './pages/HomePage'; // Assuming you have this
+import HomePage from './pages/HomePage'; 
 import DailyHoroscope from './components/DailyHoroscope';
 import AstroShopSection from './components/AstroShopSection';
 import PoojaSection from './components/PoojaSection';
+import PoojaDetails from "./pages/PoojaDetails";
 import ZodiacSigns from './components/ZodiacExplorer';
-import PromotionModal from './components/PromotionModal';
+// import PromotionModal from './components/PromotionModal';
 import SignupModal from './components/SignupModal';
 import { AnimatePresence } from 'framer-motion';
 import AstrologerList from './pages/AstrologerList';
 import Profile from './pages/Profile';
 import Contact from './components/Contact';
+
 
 function App() {
   const [isPromoModalOpen, setIsPromoModalOpen] = useState(false);
@@ -60,6 +62,7 @@ function App() {
           <Route path="/horoscope" element={<DailyHoroscope />} />
           <Route path="/shop" element={<AstroShopSection />} />
           <Route path="/pooja" element={<PoojaSection />} />
+          <Route path="/pooja/:id" element={<PoojaDetails />} />
           <Route path="/zodiac-signs" element={<ZodiacSigns />} />
           <Route path="/astro-connect" element={<AstrologerList />} />
              <Route path="/Contact-us" element={<Contact />} />

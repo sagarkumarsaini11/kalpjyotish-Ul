@@ -8,10 +8,6 @@ import { FiArrowUp } from 'react-icons/fi';
 import { quickLinks, usefulLinks } from '../data/footerLinksData';
 import ContactForm from "./ContactForm";
 
-
-
-
-
 // REMOVED: No longer importing local images
 // import googlePlayBadge from '../assets/google-play-badge.png';
 // import appStoreBadge from '../assets/app-store-badge.png';
@@ -26,8 +22,8 @@ const Footer = () => {
   const whatsappNumber = "999999999999"; // change
 
 
-// inside Footer component:
-const [isContactOpen, setIsContactOpen] = useState(false);
+  // inside Footer component:
+  const [isContactOpen, setIsContactOpen] = useState(false);
 
 
   const toggleVisibility = () => {
@@ -47,13 +43,13 @@ const [isContactOpen, setIsContactOpen] = useState(false);
 
 
   const handleWhatsAppClick = () => {
-  const message = encodeURIComponent("Hello, I want to know more about KalpJyotish services");
-  window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
-};
+    const message = encodeURIComponent("Hello, I want to know more about KalpJyotish services");
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+  };
 
-const handleCallClick = () => {
-  window.location.href = `tel:${phoneNumber}`;
-};
+  const handleCallClick = () => {
+    window.location.href = `tel:${phoneNumber}`;
+  };
 
 
 
@@ -83,15 +79,15 @@ const handleCallClick = () => {
           <div className="app-badges">
             {/* UPDATED: Using direct online URLs for the SVG badges */}
             <a href="#" target="_blank" rel="noopener noreferrer">
-              <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
-                alt="Get it on Google Play" 
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                alt="Get it on Google Play"
               />
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer">
-              <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" 
-                alt="Download on the App Store" 
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
+                alt="Download on the App Store"
               />
             </a>
           </div>
@@ -114,7 +110,7 @@ const handleCallClick = () => {
             ))}
           </div>
         </div>
-        
+
         <div className="footer-column">
           <h3 className="footer-title">Quick Links</h3>
           <ul className="footer-links">
@@ -122,32 +118,29 @@ const handleCallClick = () => {
           </ul>
         </div>
         <div className="footer-column">
-  <h3 className="footer-title">Useful Links</h3>
-  <ul className="footer-links">
-    {usefulLinks.map(link => (
-      <li key={link.title}>
-        {link.title === "Contact Us" ? (
-          <button 
-            className="contact-link" 
-            onClick={() => setIsContactOpen(true)}
-          >
-            {link.title}
-          </button>
-        ) : (
-          <Link to={link.path}>{link.title}</Link>
-        )}
-      </li>
-    ))}
-  </ul>
+          <h3 className="footer-title">Useful Links</h3>
+          <ul className="footer-links">
+            {usefulLinks.map(link => (
+              <li key={link.title}>
+                {link.title === "Contact Us" ? (
+                  <button
+                    className="contact-link"
+                    onClick={() => setIsContactOpen(true)}
+                  >
+                    {link.title}
+                  </button>
+                ) : (
+                  <Link to={link.path}>{link.title}</Link>
+                )}
+              </li>
+            ))}
+          </ul>
         </div>
 
-<ContactForm 
-  isOpen={isContactOpen} 
-  onClose={() => setIsContactOpen(false)} 
-/>
-     
-     
-
+        <ContactForm
+          isOpen={isContactOpen}
+          onClose={() => setIsContactOpen(false)}
+        />
 
       </div>
       <div className="footer-bottom">
@@ -158,46 +151,46 @@ const handleCallClick = () => {
           <Link to="/terms">T&C</Link>
         </div>
       </div>
-      
+
       <AnimatePresence>
         {isVisible && (
           <>
 
             {/* WhatsApp */}
-      <motion.button
-        className="floating-btn whatsapp-btn"
-        onClick={handleWhatsAppClick}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 20 }}
-        transition={{ duration: 0.3 }}
-      >
-        <FaWhatsapp />
-      </motion.button>
+            <motion.button
+              className="floating-btn whatsapp-btn"
+              onClick={handleWhatsAppClick}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.3 }}
+            >
+              <FaWhatsapp />
+            </motion.button>
 
-      {/* Call */}
-      <motion.button
-        className="floating-btn call-btn"
-        onClick={handleCallClick}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 20 }}
-        transition={{ duration: 0.3 }}
-      >
-        <FaPhone />
-      </motion.button>
+            {/* Call */}
+            <motion.button
+              className="floating-btn call-btn"
+              onClick={handleCallClick}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.3 }}
+            >
+              <FaPhone />
+            </motion.button>
 
 
-          <motion.button
-            className="back-to-top-btn"
-            onClick={scrollToTop}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.3 }}
-          >
-            <FiArrowUp />
-          </motion.button>
+            <motion.button
+              className="back-to-top-btn"
+              onClick={scrollToTop}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.3 }}
+            >
+              <FiArrowUp />
+            </motion.button>
           </>
         )}
       </AnimatePresence>
