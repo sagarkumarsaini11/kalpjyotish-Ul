@@ -160,7 +160,7 @@ const LandingPage = () => {
             <SwiperSlide key={index} className="hero-slide">
               <div className="slide-background" style={{ backgroundImage: `url(${slide.image})` }}></div>
               <div className="slide-overlay"></div>
-              <motion.div
+              {/* <motion.div
                 className="slide-content"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -173,7 +173,7 @@ const LandingPage = () => {
                   <span>Explore Now</span>
                   <FiArrowRight />
                 </Link>
-              </motion.div>
+              </motion.div> */}
             </SwiperSlide>
           ))}
         </Swiper>
@@ -268,14 +268,14 @@ const LandingPage = () => {
       <BlogSection />
       <Footer />
 
-      <motion.div
+      {/* <motion.div
         className="whatsapp-icon"
         onClick={handleWhatsAppClick}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
         <FaWhatsapp />
-      </motion.div>
+      </motion.div> */}
     </div>
   );
 };
