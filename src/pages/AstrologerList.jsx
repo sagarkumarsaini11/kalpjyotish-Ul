@@ -1,195 +1,203 @@
-// src/pages/AstrologerList.jsx
-
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import "./AstrologerList.css"; // The CSS file will also be updated
+import "./AstrologerList.css";
 
-// ====================================================================
-// --- 1. Static Payment Gateway Modal Component ---
-// ====================================================================
+/* =====================================================
+   PAYMENT MODAL
+===================================================== */
 const PaymentGatewayModal = ({ onClose, amount }) => {
-  const [paymentState, setPaymentState] = useState('idle'); // 'idle', 'processing', 'success'
+  const [paymentState, setPaymentState] = useState("idle");
 
-  // Simulates making a payment
   const handlePayment = () => {
-    setPaymentState('processing');
+    setPaymentState("processing");
+
     setTimeout(() => {
-      setPaymentState('success');
-      // Close the modal automatically after success
-      setTimeout(() => {
-        onClose();
-      }, 1500);
-    }, 2000);
+      setPaymentState("success");
+      setTimeout(onClose, 1500);
+    }, 1500);
   };
 
   return (
-    <motion.div className="modal-overlay" onClick={onClose}>
+    <motion.div
+      className="modal-overlay"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+    >
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.9 }}
         className="modal-content"
+        initial={{ scale: 0.9 }}
+        animate={{ scale: 1 }}
+        exit={{ scale: 0.9 }}
         onClick={(e) => e.stopPropagation()}
       >
-        <button onClick={onClose} className="modal-close-btn">✖</button>
-        <AnimatePresence mode="wait">
-          {paymentState === 'idle' && (
-            <motion.div key="idle" exit={{ opacity: 0, scale: 0.9 }}>
-              <h2 className="modal-title">Secure Payment</h2>
-              <p className="payment-amount-display">You are paying: <strong>₹{amount}</strong></p>
-              <div className="payment-gateway-form">
-                <div className="input-mock"><span className="input-placeholder">Card Number</span></div>
-                <div className="input-mock-group">
-                  <div className="input-mock"><span className="input-placeholder">MM / YY</span></div>
-                  <div className="input-mock"><span className="input-placeholder">CVV</span></div>
-                </div>
-              </div>
-              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="connect-button" onClick={handlePayment}>
-                Pay Now
-              </motion.button>
-            </motion.div>
-          )}
+        <button className="modal-close-btn" onClick={onClose}>
+          ✖
+        </button>
 
-          {paymentState === 'processing' && (
-            <motion.div key="processing" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="payment-status-container">
-              <div className="spinner"></div>
-              <p>Processing Payment...</p>
-            </motion.div>
-          )}
+        {paymentState === "idle" && (
+          <>
+            <h2 className="modal-title">Secure Payment</h2>
+            <p className="payment-amount-display">₹{amount}</p>
+            <button className="connect-button" onClick={handlePayment}>
+              Pay Now
+            </button>
+          </>
+        )}
 
-          {paymentState === 'success' && (
-            <motion.div key="success" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="payment-status-container">
-              <div className="success-animation"><div className="checkmark"></div></div>
-              <p>Payment Successful!</p>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {paymentState === "processing" && <p>Processing...</p>}
+        {paymentState === "success" && <p>Payment Successful ✅</p>}
       </motion.div>
     </motion.div>
   );
 };
 
-// ====================================================================
-// --- 2. Add Money Modal Component (Updated) ---
-// ====================================================================
-const AddMoneyModal = ({ onClose, onProceed }) => {
-  const [amount, setAmount] = useState(500);
-  const [error, setError] = useState("");
-  const handleAmountChange = (e) => { setAmount(e.target.value === "" ? "" : Number(e.target.value)); };
-  const handleSetPresetAmount = (presetAmount) => { setAmount(presetAmount); };
-  
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (amount < 50) { setError("Minimum amount to add is ₹50."); return; }
-    setError("");
-    // Calls the onProceed function passed from the parent, with the chosen amount
-    onProceed(amount);
+/* =====================================================
+   CHAT POPUP  (FIXED VERSION)
+===================================================== */
+
+const ChatPopup = ({ astro, onClose }) => {
+  const [messages, setMessages] = useState([
+    { from: "astro", text: "Namaste 🙏 How can I help you today?" },
+  ]);
+
+  const [input, setInput] = useState("");
+
+  const sendMessage = () => {
+    if (!input.trim()) return;
+
+    setMessages((prev) => [...prev, { from: "user", text: input }]);
+    setInput("");
+
+    setTimeout(() => {
+      setMessages((prev) => [
+        ...prev,
+        { from: "astro", text: "Sure, I will guide you 😊" },
+      ]);
+    }, 700);
   };
 
   return (
-    <motion.div className="modal-overlay" onClick={onClose}>
-      <motion.div className="modal-content" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} onClick={(e) => e.stopPropagation()}>
-        <button onClick={onClose} className="modal-close-btn">✖</button>
-        <h2 className="modal-title">Add Money to Wallet</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="payment-modal-body">
-            <label htmlFor="amount-input">Enter Amount</label>
-            <div className="amount-input-wrapper">
-              <span>₹</span>
-              <input id="amount-input" type="number" value={amount} onChange={handleAmountChange} placeholder="e.g., 500" min="50" />
-            </div>
-            {error && <p className="error-message">{error}</p>}
-            <div className="preset-amounts">
-              <button type="button" onClick={() => handleSetPresetAmount(100)}>₹100</button>
-              <button type="button" onClick={() => handleSetPresetAmount(500)}>₹500</button>
-              <button type="button" onClick={() => handleSetPresetAmount(1000)}>₹1000</button>
-            </div>
+    <motion.div
+      className="chat-popup"
+      initial={{ opacity: 0, y: 80 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 80 }}
+      transition={{ duration: 0.25 }}
+    >
+      <div className="chat-header">
+        <span>{astro?.name}</span>
+        <button onClick={onClose}>✖</button>
+      </div>
+
+      <div className="chat-messages">
+        {messages.map((m, i) => (
+          <div key={i} className={`msg ${m.from}`}>
+            {m.text}
           </div>
-          <button type="submit" className="connect-button" disabled={amount < 50}>Proceed to Pay</button>
-        </form>
-      </motion.div>
+        ))}
+      </div>
+
+      <div className="chat-input">
+        <input
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+          placeholder="Type message..."
+        />
+        <button onClick={sendMessage}>Send</button>
+      </div>
     </motion.div>
   );
 };
 
-// ====================================================================
-// --- 3. Main AstrologerList Component (Manages Modals) ---
-// ====================================================================
+/* =====================================================
+   MAIN PAGE
+===================================================== */
 const AstrologerList = () => {
   const [astrologers, setAstrologers] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedAstro, setSelectedAstro] = useState(null);
+
   const [isAddMoneyModalOpen, setIsAddMoneyModalOpen] = useState(false);
   const [isGatewayModalOpen, setIsGatewayModalOpen] = useState(false);
+
   const [paymentAmount, setPaymentAmount] = useState(0);
+
+  /* ✅ FIXED — THIS WAS MISSING */
+  const [chatAstro, setChatAstro] = useState(null);
 
   useEffect(() => {
     fetch("https://kalpjyotish.com/api/api/astrologer/all")
-      .then((res) => res.json())
-      .then((data) => {
-        const filteredData = (data.data || []).filter((astro) => astro.isApproved !== false && (astro.user_profile || astro.profilePhoto));
-        setAstrologers(filteredData);
+      .then((r) => r.json())
+      .then((d) => {
+        setAstrologers(d.data || []);
         setLoading(false);
-      })
-      .catch((err) => { console.error("Error fetching astrologers:", err); setLoading(false); });
+      });
   }, []);
 
-  const handleSelectAstro = (astro) => { setSelectedAstro(astro._id === selectedAstro?._id ? null : astro); };
-
-  // This function handles the transition from the "Add Money" modal to the "Gateway" modal
-  const handleProceedToGateway = (amount) => {
-    setPaymentAmount(amount);
-    setIsAddMoneyModalOpen(false); // Close the first modal
-    setIsGatewayModalOpen(true);  // Open the second modal
-  };
-
-  if (loading) { return <div className="loading-text">Finding the best astrologers for you...</div>; }
-
-  const bubbleVariants = { hidden: { opacity: 0, scale: 0.5 }, visible: (i) => ({ opacity: 1, scale: 1, transition: { delay: i * 0.1, type: "spring", stiffness: 120 }, }), };
-  const cardDetailVariants = { hidden: { opacity: 0, y: 50, scale: 0.95 }, visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.4, ease: "easeOut" } }, exit: { opacity: 0, y: 30, scale: 0.95, transition: { duration: 0.3, ease: "easeIn" } }, };
+  if (loading) return <div className="loading-text">Loading...</div>;
 
   return (
     <>
       <div className="astrologer-list-container">
-        <div className="bubbles-container">
-          {astrologers.map((astro, i) => (
-            <motion.div key={astro._id} variants={bubbleVariants} initial="hidden" animate="visible" custom={i} whileHover={{ y: -5 }} onClick={() => handleSelectAstro(astro)} className="bubble-wrapper">
-              <img src={astro.user_profile || astro.profilePhoto || "https://i.imgur.com/G4G987O.png"} alt={astro.name} className={`bubble-image ${selectedAstro?._id === astro._id ? "selected" : ""}`} />
-              <p className="bubble-name">{astro.name}</p>
-            </motion.div>
+        <div className="astro-grid">
+          {astrologers.map((astro) => (
+            <div key={astro._id} className="astro-card">
+              <img
+                className="astro-img"
+                src={
+                  astro.user_profile ||
+                  astro.profilePhoto ||
+                  "https://ui-avatars.com/api/?name=" + astro.name
+                }
+                alt={astro.name}
+                onError={(e) => {
+                  e.target.src =
+                    "https://ui-avatars.com/api/?name=" + astro.name;
+                }}
+              />
+
+              <div className="astro-info">
+                <h3>{astro.name}</h3>
+                <p>{astro.language?.join(", ")}</p>
+              </div>
+
+              <div className="astro-actions">
+                <button
+                  className="chat-btn"
+                  onClick={() => setChatAstro(astro)}
+                >
+                  CHAT
+                </button>
+
+                <button
+                  className="call-btn"
+                  onClick={() => setIsAddMoneyModalOpen(true)}
+                >
+                  CALL
+                </button>
+              </div>
+            </div>
           ))}
         </div>
-
-        <AnimatePresence>
-          {selectedAstro && (
-            <motion.div key={selectedAstro._id} variants={cardDetailVariants} initial="hidden" animate="visible" exit="exit" className="detail-card">
-              <button onClick={() => setSelectedAstro(null)} className="detail-card-close-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-              </button>
-              <div className="detail-card-header">
-                <img src={selectedAstro.user_profile || selectedAstro.profilePhoto || "https://i.imgur.com/G4G987O.png"} alt={selectedAstro.name} className="detail-card-image" />
-                <div className="detail-card-header-info">
-                  <h2 className="detail-card-name">{selectedAstro.name}</h2>
-                  <span className={`status-badge ${selectedAstro.status === "live" ? "live" : "offline"}`}>{selectedAstro.status === 'live' ? '● Live' : 'Offline'}</span>
-                  <p className="detail-card-skills"><strong>Specialties:</strong> {selectedAstro.all_skills?.slice(0, 3).join(", ") || "Expert Astrologer"}</p>
-                </div>
-              </div>
-              <div className="detail-card-body">
-                <p><strong>Experience:</strong> {selectedAstro.experience || "Not specified"}</p>
-                <p><strong>Languages:</strong> {selectedAstro.language?.join(", ") || "Not specified"}</p>
-                {selectedAstro.charge_per_minute && (<p className="detail-card-price">₹{selectedAstro.charge_per_minute} / minute</p>)}
-              </div>
-              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="connect-button" onClick={() => setIsAddMoneyModalOpen(true)}>
-                Connect Now
-              </motion.button>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
 
+      {/* MODALS */}
       <AnimatePresence>
-        {isAddMoneyModalOpen && <AddMoneyModal onClose={() => setIsAddMoneyModalOpen(false)} onProceed={handleProceedToGateway} />}
-        {isGatewayModalOpen && <PaymentGatewayModal onClose={() => setIsGatewayModalOpen(false)} amount={paymentAmount} />}
+        {isGatewayModalOpen && (
+          <PaymentGatewayModal
+            amount={paymentAmount}
+            onClose={() => setIsGatewayModalOpen(false)}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* CHAT POPUP */}
+      <AnimatePresence>
+        {chatAstro && (
+          <ChatPopup astro={chatAstro} onClose={() => setChatAstro(null)} />
+        )}
       </AnimatePresence>
     </>
   );

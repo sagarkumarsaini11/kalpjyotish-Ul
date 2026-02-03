@@ -33,21 +33,21 @@ import Footer from '../components/Footer';
 const slideContent = [
   {
     image: heroImage1,
-    title: "Chart Your Destiny",
-    subtitle: "Personalized birth charts and detailed astrological reports.",
-    link: "/zodiac-signs"
+    // title: "Chart Your Destiny",
+    // subtitle: "Personalized birth charts and detailed astrological reports.",
+    // link: "/zodiac-signs"
   },
   {
     image: heroImage2,
-    title: "Consult with Experts",
-    subtitle: "Connect with renowned astrologers for one-on-one sessions.",
-    link: "/talk"
+    // title: "Consult with Experts",
+    // subtitle: "Connect with renowned astrologers for one-on-one sessions.",
+    // link: "/talk"
   },
   {
     image: heroImage3,
-    title: "Ancient Wisdom, Modern Insights",
-    subtitle: "Explore Vedic astrology to illuminate your life's path.",
-    link: "/horoscope"
+    // title: "Ancient Wisdom, Modern Insights",
+    // subtitle: "Explore Vedic astrology to illuminate your life's path.",
+    // link: "/horoscope"
   }
 ];
 
@@ -84,19 +84,19 @@ const HomePage = () => {
               ></div>
               <div className="slide-overlay"></div>
               <motion.div
-                className="slide-content"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.5 }}
-                viewport={{ once: true }}
+                // className="slide-content"
+                // initial={{ opacity: 0, y: 50 }}
+                // whileInView={{ opacity: 1, y: 0 }}
+                // transition={{ duration: 1, delay: 0.5 }}
+                // viewport={{ once: true }}
               >
                 {/* Conditionally render title/subtitle only if they exist */}
-                {slide.title && <h1 className="slide-title">{slide.title}</h1>}
-                {slide.subtitle && <p className="slide-subtitle">{slide.subtitle}</p>}
-                <Link to={slide.link} className="cta-button">
-                  <span>Explore Now</span>
-                  <FiArrowRight />
-                </Link>
+                {/* {slide.title && <h1 className="slide-title">{slide.title}</h1>}
+                {slide.subtitle && <p className="slide-subtitle">{slide.subtitle}</p>} */}
+                {/* <Link to={slide.link} className="cta-button"> */}
+                  {/* <span>Explore Now</span> */}
+                  {/* <FiArrowRight /> */}
+                {/* </Link> */}
               </motion.div>
             </SwiperSlide>
           ))}

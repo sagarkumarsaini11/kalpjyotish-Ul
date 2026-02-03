@@ -1,84 +1,1095 @@
-
-
-
-
 /* AstrologerList.css - Includes Payment Gateway Styles */
 
-:root {
+/* :root {
   --astro-font-family: sans-serif;
-  --astro-card-bg-color: #2C2C2C;
+  --astro-card-bg-color: #2c2c2c;
   --astro-border-color: rgba(255, 255, 255, 0.1);
   --astro-primary-color: #ffcc00;
   --astro-primary-hover-color: #ffe066;
-  --astro-text-light: #EAEAEA;
-  --astro-text-medium: #A0A0A0;
+  --astro-text-light: #eaeaea;
+  --astro-text-medium: #a0a0a0;
   --astro-text-dark-on-accent: #f5f5f5;
   --status-live-bg: #22c55e;
   --status-live-text: #f5f5f5;
-}
+} */
 
 /* --- Main Component Wrapper --- */
-.astrologer-list-container { width: 100%; max-width: 72rem; margin-left: auto; margin-right: auto; padding: 6rem 1rem 2rem; font-family: var(--astro-font-family); background-color: transparent; min-height: 100vh; }
-.loading-text { text-align: center; padding: 5rem 0; font-size: 1.125rem; font-weight: 600; color: var(--astro-text-medium); }
-.bubbles-container { display: flex; gap: 1.5rem; padding: 1rem; overflow-x: auto; -ms-overflow-style: none; scrollbar-width: none; }
-.bubbles-container::-webkit-scrollbar { display: none; }
-.bubble-wrapper { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; cursor: pointer; }
-.bubble-image { width: 6rem; height: 6rem; object-fit: cover; border-radius: 9999px; border: 4px solid var(--astro-border-color); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3); transition: all 0.3s ease-in-out; }
-.bubble-wrapper:hover .bubble-image { border-color: var(--astro-primary-hover-color); }
-.bubble-image.selected { border-color: var(--astro-primary-color); transform: scale(1.1); }
-.bubble-name { margin-top: 0.5rem; font-size: 0.875rem; font-weight: 500; color: var(--astro-text-medium); text-align: center; width: 6rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* .astrologer-list-container {
+  width: 100%;
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 6rem 1rem 2rem;
+  font-family: var(--astro-font-family);
+  background-color: transparent;
+  min-height: 100vh;
+}
+.loading-text {
+  text-align: center;
+  padding: 5rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--astro-text-medium);
+}
+.bubbles-container {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.bubbles-container::-webkit-scrollbar {
+  display: none;
+}
+.bubble-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.bubble-image {
+  width: 6rem;
+  height: 6rem;
+  object-fit: cover;
+  border-radius: 9999px;
+  border: 4px solid var(--astro-border-color);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+.bubble-wrapper:hover .bubble-image {
+  border-color: var(--astro-primary-hover-color);
+}
+.bubble-image.selected {
+  border-color: var(--astro-primary-color);
+  transform: scale(1.1);
+}
+.bubble-name {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--astro-text-medium);
+  text-align: center;
+  width: 6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */
 
 /* --- Detail Card --- */
-.detail-card { margin-top: 2rem; background-color: var(--astro-card-bg-color); box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5); border: 1px solid var(--astro-border-color); border-radius: 1.5rem; padding: 2rem; max-width: 36rem; margin-left: auto; margin-right: auto; position: relative; display: flex; flex-direction: column; }
-.detail-card-close-btn { position: absolute; top: 1rem; right: 1rem; color: var(--astro-text-medium); background: none; border: none; cursor: pointer; transition: color 0.2s ease; }
-.detail-card-close-btn:hover { color: var(--astro-text-light); }
-.detail-card-close-btn svg { width: 1.5rem; height: 1.5rem; }
-.detail-card-header { display: flex; align-items: center; text-align: left; }
-.detail-card-image { width: 8rem; height: 8rem; object-fit: cover; border-radius: 9999px; border: 4px solid var(--astro-primary-color); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3); flex-shrink: 0; }
-.detail-card-header-info { margin-left: 1.5rem; flex-grow: 1; }
-.detail-card-name { font-size: 1.5rem; font-weight: 700; color: var(--astro-text-light); }
-.status-badge { margin-top: 0.25rem; display: inline-block; font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.75rem; border-radius: 9999px; }
-.status-badge.live { background-color: var(--status-live-bg); color: var(--status-live-text); }
-.status-badge.offline { background-color: #374151; color: #d1d5db; }
-.detail-card-skills { margin-top: 0.75rem; font-size: 0.875rem; color: var(--astro-text-medium); }
-.detail-card-body { margin-top: 1.5rem; border-top: 1px solid var(--astro-border-color); padding-top: 1.5rem; font-size: 0.875rem; color: var(--astro-text-medium); display: grid; grid-template-columns: 1fr; gap: 1rem; }
-.detail-card-body p > strong { color: var(--astro-text-light); }
-.detail-card-price { font-weight: 700; font-size: 1.25rem; color: var(--astro-primary-color); text-align: left; }
-.connect-button { margin-top: 1.5rem; width: 100%; background-color: var(--astro-primary-color); color: var(--astro-text-dark-on-accent); font-weight: 700; padding: 0.75rem 1rem; border-radius: 1.5rem; border: none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); transition: all 0.2s ease-in-out; cursor: pointer; }
-.connect-button:hover { background-color: var(--astro-primary-hover-color); }
-@media (max-width: 640px) { .detail-card-header { flex-direction: column; text-align: center; } .detail-card-header-info { margin-left: 0; margin-top: 1rem; } .detail-card-body, .detail-card-price { text-align: center; } }
+/* .detail-card {
+  margin-top: 2rem;
+  background-color: var(--astro-card-bg-color);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--astro-border-color);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.detail-card-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: var(--astro-text-medium);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.detail-card-close-btn:hover {
+  color: var(--astro-text-light);
+}
+.detail-card-close-btn svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.detail-card-header {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+.detail-card-image {
+  width: 8rem;
+  height: 8rem;
+  object-fit: cover;
+  border-radius: 9999px;
+  border: 4px solid var(--astro-primary-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+.detail-card-header-info {
+  margin-left: 1.5rem;
+  flex-grow: 1;
+}
+.detail-card-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--astro-text-light);
+}
+.status-badge {
+  margin-top: 0.25rem;
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+}
+.status-badge.live {
+  background-color: var(--status-live-bg);
+  color: var(--status-live-text);
+}
+.status-badge.offline {
+  background-color: #374151;
+  color: #d1d5db;
+}
+.detail-card-skills {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--astro-text-medium);
+}
+.detail-card-body {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--astro-border-color);
+  padding-top: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--astro-text-medium);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.detail-card-body p > strong {
+  color: var(--astro-text-light);
+}
+.detail-card-price {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--astro-primary-color);
+  text-align: left;
+}
+.connect-button {
+  margin-top: 1.5rem;
+  width: 100%;
+  background-color: var(--astro-primary-color);
+  color: var(--astro-text-dark-on-accent);
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+  border-radius: 1.5rem;
+  border: none;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+.connect-button:hover {
+  background-color: var(--astro-primary-hover-color);
+}
+@media (max-width: 640px) {
+  .detail-card-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .detail-card-header-info {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+  .detail-card-body,
+  .detail-card-price {
+    text-align: center;
+  }
+}
 
 /* --- General Modal Styles --- */
-.modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.8); display: flex; justify-content: center; align-items: center; z-index: 100; }
-.modal-content { background-color: var(--astro-card-bg-color); border: 1px solid var(--astro-border-color); border-radius: 1.5rem; padding: 2rem; width: 90%; max-width: 28rem; text-align: center; position: relative; }
-.modal-close-btn { position: absolute; top: 1rem; right: 1rem; color: var(--astro-text-medium); background: none; border: none; cursor: pointer; font-size: 1.5rem; line-height: 1; }
-.modal-close-btn:hover { color: var(--astro-text-light); }
-.modal-title { font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; color: var(--astro-text-light); }
+/* .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+.modal-content {
+  background-color: var(--astro-card-bg-color);
+  border: 1px solid var(--astro-border-color);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  width: 90%;
+  max-width: 28rem;
+  text-align: center;
+  position: relative;
+}
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: var(--astro-text-medium);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+.modal-close-btn:hover {
+  color: var(--astro-text-light);
+}
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--astro-text-light);
+} */
 
 /* --- Add Money Modal Specific Styles --- */
-.payment-modal-body { margin-bottom: 1.5rem; }
-.payment-modal-body label { display: block; text-align: left; margin-bottom: 0.5rem; color: var(--astro-text-medium); font-size: 0.875rem; }
-.amount-input-wrapper { display: flex; align-items: center; background-color: rgba(0, 0, 0, 0.3); border-radius: 0.75rem; border: 1px solid var(--astro-border-color); padding: 0 1rem; }
-.amount-input-wrapper span { font-size: 1.5rem; color: var(--astro-text-medium); padding-right: 0.75rem; }
-.amount-input-wrapper input { width: 100%; background: transparent; border: none; color: var(--astro-text-light); font-size: 1.5rem; font-weight: 700; padding: 0.75rem 0; outline: none; }
-.amount-input-wrapper input::-webkit-outer-spin-button, .amount-input-wrapper input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-.amount-input-wrapper input[type=number] { -moz-appearance: textfield; }
-.error-message { color: #fca5a5; font-size: 0.875rem; text-align: left; margin-top: 0.5rem; }
-.preset-amounts { display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem; }
-.preset-amounts button { background-color: transparent; border: 1px solid var(--astro-border-color); color: var(--astro-text-medium); padding: 0.5rem 1rem; border-radius: 9999px; cursor: pointer; transition: all 0.2s ease; }
-.preset-amounts button:hover { background-color: var(--astro-primary-color); border-color: var(--astro-primary-color); color: var(--astro-text-dark-on-accent); }
+/* .payment-modal-body {
+  margin-bottom: 1.5rem;
+}
+.payment-modal-body label {
+  display: block;
+  text-align: left;
+  margin-bottom: 0.5rem;
+  color: var(--astro-text-medium);
+  font-size: 0.875rem;
+}
+.amount-input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 0.75rem;
+  border: 1px solid var(--astro-border-color);
+  padding: 0 1rem;
+}
+.amount-input-wrapper span {
+  font-size: 1.5rem;
+  color: var(--astro-text-medium);
+  padding-right: 0.75rem;
+}
+.amount-input-wrapper input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--astro-text-light);
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 0.75rem 0;
+  outline: none;
+}
+.amount-input-wrapper input::-webkit-outer-spin-button,
+.amount-input-wrapper input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.amount-input-wrapper input[type="number"] {
+  -moz-appearance: textfield;
+}
+.error-message {
+  color: #fca5a5;
+  font-size: 0.875rem;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+.preset-amounts {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.preset-amounts button {
+  background-color: transparent;
+  border: 1px solid var(--astro-border-color);
+  color: var(--astro-text-medium);
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.preset-amounts button:hover {
+  background-color: var(--astro-primary-color);
+  border-color: var(--astro-primary-color);
+  color: var(--astro-text-dark-on-accent);
+} */ 
 
 /* --- Payment Gateway Modal Styles --- */
-.payment-amount-display { margin-bottom: 1.5rem; font-size: 1rem; color: var(--astro-text-medium); }
-.payment-amount-display strong { font-size: 1.25rem; font-weight: 700; color: var(--astro-primary-color); }
-.payment-gateway-form { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem; }
-.input-mock { background-color: rgba(0, 0, 0, 0.3); border: 1px solid var(--astro-border-color); border-radius: 0.5rem; padding: 0.75rem 1rem; text-align: left; }
-.input-placeholder { color: var(--astro-text-medium); }
-.input-mock-group { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+/* .payment-amount-display {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: var(--astro-text-medium);
+}
+.payment-amount-display strong {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--astro-primary-color);
+}
+.payment-gateway-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.input-mock {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--astro-border-color);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+.input-placeholder {
+  color: var(--astro-text-medium);
+}
+.input-mock-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+} */
 
 /* --- Payment Status (Spinner & Success) --- */
-.payment-status-container { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 200px; color: var(--astro-text-light); font-size: 1.125rem; }
-.spinner { width: 50px; height: 50px; border: 5px solid var(--astro-border-color); border-top-color: var(--astro-primary-color); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 1rem; }
-@keyframes spin { to { transform: rotate(360deg); } }
-.success-animation { width: 70px; height: 70px; border-radius: 50%; background-color: var(--status-live-bg); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
-.checkmark { width: 25px; height: 45px; border: solid white; border-width: 0 6px 6px 0; transform: rotate(45deg); }
+/* .payment-status-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  color: var(--astro-text-light);
+  font-size: 1.125rem;
+}
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--astro-border-color);
+  border-top-color: var(--astro-primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.success-animation {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: var(--status-live-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.checkmark {
+  width: 25px;
+  height: 45px;
+  border: solid white;
+  border-width: 0 6px 6px 0;
+  transform: rotate(45deg);
+} */
+
+
+
+
+/* =========================================
+   ASTRO LIST CARD UI (NEW DESIGN)
+   ========================================= */
+
+/* .astro-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 1.5rem;
+} */
+
+/* CARD */
+/* .astro-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--astro-card-bg-color);
+  border: 1px solid var(--astro-border-color);
+  border-radius: 1.25rem;
+  padding: 1rem;
+  transition: 0.25s;
+}
+
+.astro-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+} */
+
+/* LEFT IMAGE */
+/* .astro-img-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.astro-img-wrapper img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--astro-primary-color);
+} */
+
+/* online dot */
+/* .online-dot {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--status-live-bg);
+  border: 2px solid #000;
+} */
+
+/* CENTER INFO */
+/* .astro-info {
+  flex: 1;
+}
+
+.astro-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.astro-top h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--astro-text-light);
+}
+
+.follow-btn {
+  font-size: 0.75rem;
+  background: transparent;
+  border: 1px solid var(--astro-primary-color);
+  color: var(--astro-primary-color);
+  padding: 3px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.follow-btn:hover {
+  background: var(--astro-primary-color);
+  color: var(--astro-text-dark-on-accent);
+}
+
+.astro-meta {
+  font-size: 0.8rem;
+  color: var(--astro-text-medium);
+  margin-top: 2px;
+}
+
+.astro-skills {
+  font-size: 0.8rem;
+  color: var(--astro-text-light);
+  margin-top: 2px;
+}
+
+.astro-rating {
+  font-size: 0.8rem;
+  margin-top: 4px;
+  color: var(--astro-primary-color);
+} */
+
+/* RIGHT SIDE */
+/* .astro-actions {
+  text-align: right;
+}
+
+.price {
+  font-weight: 700;
+  color: var(--astro-primary-color);
+  margin-bottom: 6px;
+}
+
+.price span {
+  font-size: 0.75rem;
+  color: var(--astro-text-medium);
+}
+
+.btn-group {
+  display: flex;
+  gap: 6px;
+} */
+
+/* CHAT */
+/* .chat-btn {
+  background: #22c55e;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+} */
+
+/* CALL */
+/* .call-btn {
+  background: #0ea5a4;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.chat-btn:hover,
+.call-btn:hover {
+  opacity: 0.85;
+} */
+
+/* MOBILE */
+/* @media (max-width: 640px) {
+  .astro-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .astro-actions {
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+  }
+
+  .btn-group {
+    width: 100%;
+  }
+
+  .chat-btn,
+  .call-btn {
+    flex: 1;
+  }
+} */
+
+
+
+
+
+
+/* .astrologer-list-container {
+  padding: 40px 20px;
+  background: #f6f8fb;
+  min-height: 100vh;
+} */
+
+/* GRID */
+/* .astro-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 22px;
+} */
+
+/* CARD */
+/* .astro-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #fff;
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: 0.25s;
+}
+
+.astro-card:hover {
+  transform: translateY(-4px);
+} */
+
+/* IMAGE */
+/* .astro-img-wrapper {
+  position: relative;
+}
+
+.astro-img-wrapper img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.online-dot {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  width: 12px;
+  height: 12px;
+  background: #2ecc71;
+  border-radius: 50%;
+  border: 2px solid #fff;
+} */
+
+/* INFO */
+/* .astro-info {
+  flex: 1;
+}
+
+.astro-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.astro-top h3 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.follow-btn {
+  border: 1px solid #0ea5a4;
+  background: transparent;
+  color: #0ea5a4;
+  padding: 4px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.astro-meta {
+  font-size: 13px;
+  color: #666;
+  margin-top: 2px;
+}
+
+.astro-skills {
+  font-size: 13px;
+  margin-top: 3px;
+}
+
+.astro-rating {
+  margin-top: 6px;
+  font-size: 13px;
+} */
+
+/* ACTIONS */
+/* .astro-actions {
+  text-align: right;
+}
+
+.price {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.price span {
+  font-size: 12px;
+  color: #777;
+}
+
+.btn-group {
+  display: flex;
+  gap: 8px;
+}
+
+.chat-btn,
+.call-btn {
+  border: none;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.chat-btn {
+  background: #22c55e;
+  color: white;
+}
+
+.call-btn {
+  background: #0ea5a4;
+  color: white;
+}
+
+.chat-btn:hover,
+.call-btn:hover {
+  opacity: 0.85;
+} */
+
+/* MOBILE */
+/* @media (max-width: 480px) {
+  .astro-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .astro-actions {
+    width: 100%;
+    text-align: left;
+  }
+
+  .btn-group {
+    width: 100%;
+  }
+
+  .chat-btn,
+  .call-btn {
+    flex: 1;
+  }
+} */
+
+
+
+
+
+
+
+/* ========================================
+   ROOT THEME
+======================================== */
+
+:root {
+  --astro-font-family: sans-serif;
+  --astro-card-bg-color: #2c2c2c;
+  --astro-border-color: rgba(255, 255, 255, 0.1);
+  --astro-primary-color: #ffcc00;
+  --astro-primary-hover-color: #ffe066;
+  --astro-text-light: #eaeaea;
+  --astro-text-medium: #a0a0a0;
+  --astro-text-dark-on-accent: #111;
+  --status-live-bg: #22c55e;
+}
+
+/* ========================================
+   PAGE WRAPPER  (NAVBAR GAP FIX HERE)
+======================================== */
+
+.astrologer-list-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+
+  /* ⭐ navbar se chipakne ka fix */
+  margin-top: 90px;
+
+  padding: 0 16px 40px;
+  font-family: var(--astro-font-family);
+  min-height: 100vh;
+}
+
+.loading-text {
+  text-align: center;
+  padding: 80px 0;
+  font-size: 18px;
+  color: var(--astro-text-medium);
+}
+
+/* ========================================
+   GRID
+======================================== */
+
+.astro-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 20px;
+}
+
+/* ========================================
+   CARD
+======================================== */
+
+.astro-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
+  background: var(--astro-card-bg-color);
+  border: 1px solid var(--astro-border-color);
+
+  border-radius: 14px;
+  padding: 16px;
+
+  transition: 0.25s;
+}
+
+.astro-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+}
+
+/* ========================================
+   IMAGE
+======================================== */
+
+.astro-img-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.astro-img-wrapper img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--astro-primary-color);
+}
+
+.online-dot {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--status-live-bg);
+  border: 2px solid #000;
+}
+
+/* ========================================
+   INFO
+======================================== */
+
+.astro-info {
+  flex: 1;
+  color: #f0eaea;
+}
+
+.astro-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.astro-top h3 {
+  font-size: 16px;
+  color: var(--astro-text-light);
+  font-weight: 600;
+}
+
+.follow-btn {
+  background: transparent;
+  border: 1px solid var(--astro-primary-color);
+  color: var(--astro-primary-color);
+  padding: 4px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.follow-btn:hover {
+  background: var(--astro-primary-color);
+  color: black;
+}
+
+.astro-meta {
+  font-size: 13px;
+  color: var(--astro-text-medium);
+  margin-top: 2px;
+}
+
+.astro-skills {
+  font-size: 13px;
+  color: var(--astro-text-light);
+  margin-top: 2px;
+}
+
+.astro-rating {
+  font-size: 13px;
+  margin-top: 4px;
+  color: var(--astro-primary-color);
+}
+
+/* ========================================
+   ACTION SIDE
+======================================== */
+
+.astro-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.price {
+  font-weight: 700;
+  color: var(--astro-primary-color);
+  margin-bottom: 8px;
+}
+
+.price span {
+  font-size: 12px;
+  color: var(--astro-text-medium);
+}
+
+.btn-group {
+  display: flex;
+  gap: 8px;
+}
+
+.chat-btn,
+.call-btn {
+  border: none;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+}
+
+.chat-btn {
+  background: #22c55e;
+}
+
+.call-btn {
+  background: #0ea5a4;
+}
+
+.chat-btn:hover,
+.call-btn:hover {
+  opacity: 0.85;
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 640px) {
+  .astro-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .astro-actions {
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+  }
+
+  .btn-group {
+    width: 100%;
+  }
+
+  .chat-btn,
+  .call-btn {
+    flex: 1;
+  }
+}
+
+
+
+
+
+
+
+/* =====================================
+   CHAT POPUP
+===================================== */
+
+.chat-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 320px;
+  height: 420px;
+
+  background: #1f1f1f;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.1);
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  z-index: 999;
+}
+
+/* header */
+.chat-header {
+  background: var(--astro-primary-color);
+  color: black;
+  padding: 10px 12px;
+  font-weight: 600;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* messages */
+.chat-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* bubbles */
+.msg {
+  max-width: 75%;
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.msg.user {
+  background: var(--astro-primary-color);
+  color: black;
+  align-self: flex-end;
+}
+
+.msg.astro {
+  background: #333;
+  color: white;
+  align-self: flex-start;
+}
+
+/* input */
+.chat-input {
+  display: flex;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  background: #2c2c2c;
+  color: white;
+  outline: none;
+}
+
+.chat-input button {
+  background: var(--astro-primary-color);
+  border: none;
+  padding: 0 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+
+/* FIX IMAGE */
+.astro-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 3px solid var(--astro-primary-color);
+}
+
+
+
+.astro-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}

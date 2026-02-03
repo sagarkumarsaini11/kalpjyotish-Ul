@@ -21,7 +21,7 @@
     gap: 0.75rem;
     font-size: 1.8rem;
     font-weight: 700;
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
     color: var(--primary-color);
 }
 .footer-logo svg {
@@ -34,6 +34,15 @@
     font-weight: 600;
     color: var(--text-color);
     margin: 1.5rem 0 1rem 0;
+}
+
+.apka-pandit{
+    margin-top: 1.2rem;
+    max-width: 80%;
+}
+
+.apka-pandit h5{
+    font-weight: 750;
 }
 
 .app-badges {
@@ -138,3 +147,108 @@
     box-shadow: 0 5px 15px var(--glow-color);
     z-index: 1000;
 }
+
+
+
+
+ .floating-container {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  z-index: 999;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* common style */
+.action-btn,
+.toggle-btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: none;
+  background-color: #25d366; 
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+}
+
+/* hover effect */
+.action-btn:hover,
+.toggle-btn:hover {
+  transform: scale(1.1);
+}
+
+/* mobile responsive */
+@media (max-width: 600px) {
+  .action-btn,
+  .toggle-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+  }
+}
+
+
+
+
+
+/* Common floating style */
+.floating-btn,
+.back-to-top-btn {
+  position: fixed;
+  right: 25px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: 0.3s;
+}
+
+.floating-btn:hover,
+.back-to-top-btn:hover {
+  transform: scale(1.1);
+}
+
+/* positions (stacked vertically) */
+.whatsapp-btn {
+  bottom: 160px;
+  background: #25D366;
+}
+
+.call-btn {
+  bottom: 100px;
+  background: #007bff;
+}
+
+.back-to-top-btn {
+  bottom: 20px;
+  background: #333;
+}
+
+
+
+

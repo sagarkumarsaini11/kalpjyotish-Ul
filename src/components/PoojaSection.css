@@ -84,26 +84,29 @@
   /* --- MODIFIED: Use Flexbox to manage the card's internal layout --- */
   display: flex;
   flex-direction: column;
+  /* background-color: aqua; */
 }
 
 .pooja-image-container {
   position: relative;
   height: 200px;
+  width: 100%;
   /* --- MODIFIED: Add a dark background to the image area --- */
   background-color: #f5f5f5;
   flex-shrink: 0; /* Prevents the image container from shrinking */
+  
 }
 
 .pooja-image {
   width: 100%;
   height: 100%;
   /* --- MODIFIED: Use 'contain' to ensure the whole image is visible --- */
-  object-fit: contain;
+  /* object-fit: contain; */
   transition: transform 0.4s ease;
 }
-.pooja-card:hover .pooja-image {
+/* .pooja-card:hover .pooja-image {
     transform: scale(1.08);
-}
+} */
 
 /* Remove the overlay as it's not needed with 'contain' */
 /* .pooja-image-overlay { ... } */
