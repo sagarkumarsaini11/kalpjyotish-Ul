@@ -1,13 +1,16 @@
 .pooja-details-container {
-    padding: 40px;
+    /* padding: 40px; */
     margin-top: 50px;
     text-align: center;
     display: flex;
     justify-content: center;
+    background-color: #000000;
+    height: 100vh;
 }
 
 .pooja-details {
     display: flex;
+    margin-top: 4rem;
     gap: 60px;
     width: 70%;
     align-items: flex-start;
@@ -26,11 +29,13 @@
 
 .pooja-right h1 {
     margin-bottom: 15px;
+    color: #ff9800;
 }
 
 .description {
     white-space: pre-line;
     margin-bottom: 20px;
+    color: #fff;
 }
 
 .price {

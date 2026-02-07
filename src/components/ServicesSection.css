@@ -1,134 +1,121 @@
-/* src/components/ServicesSection.css */
-/* THE FINAL UNIFIED DESIGN WITH TWO SEPARATE CONTAINERS */
-
-/* Define the color palette */
-:root {
-  --image-bg: #f5f5f5;
-  --image-container-bg: #222222;
-  --image-primary: #FFB833;
-  --image-text: #BDBDBD;
-}
-
-/* Overall section styling */
 .services-section {
-  padding: 4rem 2rem;
-  background-color: var(--image-bg);
+  padding: 2rem 2rem;
+  background-color: #000;
   text-align: center;
+  width: 100%;
+  overflow-x: hidden;
 }
 
-/* --- A SHARED STYLE FOR BOTH SERVICE CONTAINERS --- */
-.service-container {
-  background: #E05320; /* Dark navy background */
-  border-radius: 20px; /* Rounded corners */
+/* CONTAINER */
+.services-section .service-container {
   color: #FFB833;
   padding: 3rem 2rem;
   border-radius: 20px;
-  /* Add margin to space out the two containers */
   margin-bottom: 3rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Remove bottom margin from the very last container in the section */
-.services-section > .service-container:last-of-type {
-  margin-bottom: 0;
-}
-
-/* The main title of each container */
-.service-container-title {
-  font-size: 2rem;
+/* TITLE */
+.services-section .service-container-title {
+  font-size: 2.5rem;
   font-weight: 700;
- background: #E05320;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 3rem;
 }
 
-/* The grid that holds all service items */
-.services-grid {
+/* 🔥 RESPONSIVE GRID (KEY FIX) */
+.services-section .services-grid {
   display: grid;
-  gap: 2.5rem 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  width: 100%;
 }
 
-/* Specific grid layouts */
-.premium-grid {
-  grid-template-columns: repeat(4, 1fr);
-}
-.complimentary-grid {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-/* Individual service item styling */
-.service-item {
+/* CARD */
+.services-section .service-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
   text-decoration: none;
+  background-color: #610161;
+  padding: 2.5rem 1.5rem;
+  border-radius: 16px;
+  width: 100%;
 }
 
-/* The glowing circle effect wrapper */
-.icon-wrapper {
-  display: grid;
-  place-items: center;
-  width: 80px;
-  height: 80px;
+/* ICON */
+.services-section .icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.services-section .icon-wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  border: 2px solid transparent; 
-  transition: all 0.3s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.service-item:hover .icon-wrapper {
-  border-color: var(--image-primary);
-  box-shadow: 0 0 20px -5px var(--image-primary);
+.services-section .icon-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px dashed rgba(255, 255, 255, 0.7);
 }
 
-.service-icon {
-  font-size: 2.5rem;
-  color: var(--image-primary);
-  line-height: 1;
+.services-section .service-icon {
+  width: 100px;
+  height: 100px;
+  background: #fff;
+  border-radius: 50%;
+  font-size: 50px;
+  color: #ff7a00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
 }
 
-.service-title {
+.services-section .service-item:hover  {
+  box-shadow: 0 10px 40px 0px #610161;
+}
+
+.services-section .service-title {
   color: #eee;
-  font-weight: 500;
-  font-size: 1rem;
-  line-height: 1.4;
-}
-
-/* --- RESPONSIVE DESIGN --- */
-@media (max-width: 992px) {
-  /* On tablets, switch to a 2x2 grid */
-  .premium-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  /* The complimentary grid can be 3 columns */
-  .complimentary-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .services-section, .service-container {
-    padding: 3rem 1.5rem;
-  }
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
 }
 
 @media (max-width: 576px) {
-  .services-section { padding: 3rem 1rem; }
-  .service-container-title { font-size: 1.8rem; }
-  
-  /* On mobile, both grids become 2 columns */
-  .premium-grid, .complimentary-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem 1rem;
+  .services-section {
+    padding: 3rem 1rem;
+  }
+
+  .service-container {
+    padding: 2rem 1rem;
   }
 
   .icon-wrapper {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
   }
+
   .service-icon {
-    font-size: 2.2rem;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
   }
+
   .service-title {
     font-size: 0.9rem;
   }

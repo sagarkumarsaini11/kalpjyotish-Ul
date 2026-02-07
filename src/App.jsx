@@ -27,29 +27,29 @@ import Contact from './components/Contact';
 
 
 function App() {
-  const [isPromoModalOpen, setIsPromoModalOpen] = useState(false);
+  // const [isPromoModalOpen, setIsPromoModalOpen] = useState(false);
   const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
 
   const openSignupModal = () => setIsSignupModalOpen(true);
   const closeSignupModal = () => setIsSignupModalOpen(false);
 
-  const closePromoModal = () => setIsPromoModalOpen(false);
+  // const closePromoModal = () => setIsPromoModalOpen(false);
 
-  useEffect(() => {
-    const hasSeenModal = sessionStorage.getItem('promoModalSeen');
-    if (!hasSeenModal) {
-      const timer = setTimeout(() => {
-        setIsPromoModalOpen(true);
-        sessionStorage.setItem('promoModalSeen', 'true');
-      }, 15000);
-      return () => clearTimeout(timer);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const hasSeenModal = sessionStorage.getItem('promoModalSeen');
+  //   if (!hasSeenModal) {
+  //     const timer = setTimeout(() => {
+  //       setIsPromoModalOpen(true);
+  //       sessionStorage.setItem('promoModalSeen', 'true');
+  //     }, 15000);
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, []);
 
   return (
     <Router>
       <AnimatePresence>
-        {isPromoModalOpen && <PromotionModal onClose={closePromoModal} />}
+        {/* {isPromoModalOpen && <PromotionModal onClose={closePromoModal} />} */}
       </AnimatePresence>
       
       <SignupModal isOpen={isSignupModalOpen} onClose={closeSignupModal} />

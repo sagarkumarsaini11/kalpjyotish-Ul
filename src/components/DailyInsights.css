@@ -1,159 +1,154 @@
-/* src/components/DailyInsights.css */
-
-/* Color palette from the images */
-:root {
-  --image-bg: #f5f5f5;
-  --image-container-bg: #222222;
-  --image-primary: #FFB833;
-  --image-text: #BDBDBD;
-}
-
-/* Overall section styling */
 .daily-insights-section {
-  padding: 4rem 2rem;
-  background-color: var(--image-bg);
+  padding: 2rem 2rem;
+  background: #000;
   text-align: center;
+  width: 100%;
+  overflow-x: hidden;
 }
 
-/* Styling for BOTH section containers */
-.appointment-section,
-.prediction-section {
- background: #E05320;
+/* SECTION WRAPPERS */
+.daily-insights-section .appointment-section,
+.daily-insights-section .prediction-section {
   padding: 3rem 2rem;
-  border-radius: 20px;
   margin-bottom: 5rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Remove bottom margin from the last section */
-.daily-insights-section > section:last-child {
-  margin-bottom: 0;
-}
-
-/* Styling for BOTH main titles */
-.appointment-section .section-main-title,
-.prediction-section .section-main-title {
-  font-size: 2rem;
+/* TITLE */
+.daily-insights-section .section-main-title {
+  font-size: 2.5rem;
   font-weight: 700;
-  color: var(--image-primary);
+  color: #FFB833;
   text-transform: uppercase;
-  letter-spacing: 2px;
   margin-bottom: 3rem;
 }
 
-/* --- SERVICE ITEMS STYLING (Used by BOTH sections) --- */
-.appointment-list {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 2rem;
+/* SERVICES LIST */
+.daily-insights-section .appointment-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2.5rem;
+  justify-content: center;
 }
 
-.service-item {
+.service-item:hover,
+.zodiac-item:hover {
+  box-shadow: 0 10px 40px 0px #610161;
+}
+
+/* SERVICE & ZODIAC CARDS */
+.daily-insights-section .service-item,
+.daily-insights-section .zodiac-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
   text-decoration: none;
-  min-width: 120px;
+  background-color: #610161;
+  padding: 2.5rem 1.5rem;
+  border-radius: 16px;
+  width: 100%;
 }
 
-/* --- ZODIAC ITEMS STYLING --- */
-/* NEW: This is the 6-column grid layout */
-.zodiac-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 2.5rem 1rem;
-}
-
-/* Re-using .service-item styling for zodiac items for consistency */
-.zodiac-item {
+/* ICON WRAPPER */
+.daily-insights-section .icon-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  text-decoration: none;
+  justify-content: center;
 }
 
-/* --- GLOWING CIRCLE EFFECT (Used by BOTH sections) --- */
-.icon-wrapper {
-  display: grid;
-  place-items: center;
-  width: 80px;
-  height: 80px;
+.daily-insights-section .icon-wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  border: 2px solid transparent; 
-  transition: all 0.3s ease-out;
-}
-
-/* Apply hover effect to both service and zodiac items */
-.service-item:hover .icon-wrapper,
-.zodiac-item:hover .icon-wrapper {
-  border-color: var(--image-primary);
-  box-shadow: 0 0 20px -5px var(--image-primary);
-}
-
-.service-icon,
-.zodiac-icon {
-  font-size: 2.5rem;
-  color: var(--image-primary);
-  line-height: 1;
-}
-
-.title-wrapper {
   display: flex;
-  flex-direction: column;
-color: #eee;
-  font-weight: 500;
-  font-size: 1rem;
-  line-height: 1.4;
+  justify-content: center;
+  align-items: center;
 }
 
-.zodiac-name {
-color: #eee;
-  font-weight: 500;
-  font-size: 1rem;
+.daily-insights-section .icon-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px dashed rgba(255, 255, 255, 0.7);
 }
 
-/* --- RESPONSIVE DESIGN --- */
-@media (max-width: 992px) {
-  /* On tablets, switch to 4 columns to avoid being too cramped */
-  .zodiac-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+/* ICON */
+.daily-insights-section .service-icon,
+.daily-insights-section .zodiac-icon {
+  width: 100px;
+  height: 100px;
+  background: #fff;
+  border-radius: 50%;
+  font-size: 50px;
+  color: #ff7a00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
 }
 
-@media (max-width: 768px) {
-  .appointment-section, .prediction-section {
-    padding: 3rem 1.5rem;
-  }
+/* ZODIAC GRID */
+.daily-insights-section .zodiac-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem 1.5rem;
 }
+
+/* TEXT */
+.daily-insights-section .title-wrapper {
+  color: #eee;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.daily-insights-section .zodiac-name {
+  color: #eee;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.translate-btn {
+  margin: 1.5rem auto;
+  width: 40%;
+  padding: 16px 16px;
+  border-radius: 20px;
+  background: #ffb833;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 
 @media (max-width: 576px) {
-  .daily-insights-section { padding: 3rem 1rem; }
-  
-  .appointment-list {
-    gap: 1.5rem 1rem;
-    justify-content: center;
-  }
-  .service-item {
-    min-width: 100px;
+  .daily-insights-section {
+    padding: 3rem 1rem;
   }
 
-  /* NEW: The 3-column mobile layout */
-  .zodiac-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem 1rem;
+  .appointment-section,
+  .prediction-section {
+    padding: 2rem 1rem;
   }
 
   .icon-wrapper {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
   }
-  .service-icon, .zodiac-icon {
-    font-size: 2.2rem;
+
+  .service-icon,
+  .zodiac-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
   }
-  .title-wrapper, .zodiac-name {
+
+  .title-wrapper,
+  .zodiac-name {
     font-size: 0.9rem;
   }
 }

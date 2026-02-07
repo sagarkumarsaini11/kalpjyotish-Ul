@@ -125,7 +125,7 @@ export default function AuthModal({ onClose }) {
 
           {step === "mobile" && (
             <>
-              <h3>Sign In</h3>
+              <h2>Log In</h2>
               <input
                 type="tel"
                 placeholder="Mobile Number"

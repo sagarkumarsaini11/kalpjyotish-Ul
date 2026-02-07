@@ -106,7 +106,7 @@ const HomePage = () => {
       {/* The rest of your page content now renders correctly below the hero section */}
       <ServicesSection />
       <DailyInsights />
-      <ConsultationTopics />
+      {/* <ConsultationTopics /> */}
       <NakshatrasSection />
       <Testimonials />
       <BlogSection />

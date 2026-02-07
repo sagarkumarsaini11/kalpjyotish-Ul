@@ -1,59 +1,7 @@
-
-
-/* src/pages/HomePage.css */
-
-/* --- Container and Swiper Sizing --- */
-/* 
-.hero-section {
-  width: 100%;
-  height: 90vh;
-  position: relative;
-  background-color: #f5f5f5; 
-} */
-
 .hero-swiper {
   width: 100%;
   height: 100%;
 }
-
-
-/* --- Slide Styling --- */
-
-/* .hero-slide {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #222; /* Dark text for white background 
-}
- */
-/* 
-.hero-slide {
-  position: relative;
-  height: 110vh;  
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-} */
-
-
-/* Background image holder */
-/* .slide-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
-  animation: zoom-in 8s ease-out forwards;
-  filter: brightness(1.05); 
-} */
 
 @keyframes zoom-in {
   from {
@@ -63,20 +11,6 @@
     transform: scale(1.1);
   }
 }
-
-/* Light overlay for soft white effect */
-/* .slide-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.6); 
-  z-index: 1;
-} */
-
-
-/* --- Content Styling --- */
 
 .slide-content {
   position: relative;
@@ -203,7 +137,7 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  margin-top: 50px;
+  margin-top: 70px;
 }
 
 .hero-slide {

@@ -145,6 +145,15 @@ const Footer = () => {
       </div>
       <div className="footer-bottom">
         <p>© {new Date().getFullYear()} KalpJyotish. All rights reserved.</p>
+        <div className="footer-bottom-sign">
+          <a
+            href="https://www.digitalinapp.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Powered By @Digital In App
+          </a>
+        </div>
         <div className="footer-bottom-links">
           <Link to="/privacy-policy">Privacy Policy</Link>
           <Link to="/faq">FAQs</Link>

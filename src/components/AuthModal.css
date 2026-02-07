@@ -136,12 +136,15 @@
 /* RIGHT */
 .auth-right {
   width: 50%;
-  padding: 50px;
+  padding: 20px;
   background-color: #8b4f1dd6;
 }
 
-.auth-right h3 {
+.auth-right h2 {
   margin-bottom: 20px;
+  text-align: center;
+  font-size: 2rem;
+  color: #ffd700;
 }
 
 .auth-right input {
@@ -155,8 +158,10 @@
 .auth-right button {
   width: 100%;
   padding: 12px;
-  background: linear-gradient(135deg, #6a11cb, #b721ff);
-  color: white;
+  background: #ffd700;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 600;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -165,6 +170,15 @@
 .auth-right button:disabled {
   background: #ccc;
   cursor: not-allowed;
+}
+
+.auth-right button:hover {
+  scale: 1.02;
+}
+
+.auth-right .error-text {
+  color: rgb(224, 28, 28);
+  text-shadow: 0 2px 5px white;
 }
 
 .info-text {

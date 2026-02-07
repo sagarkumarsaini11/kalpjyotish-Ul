@@ -6,7 +6,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-   background: #E05320;
+   background: black;
   backdrop-filter: blur(10px);
   color: var(--primary-color);
   position: fixed;

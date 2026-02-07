@@ -10,7 +10,7 @@
 
 .astro-shop-section {
   padding: 5rem 2rem;
-  background-color: var(--shop-bg);
+  background-color: #000000;
   text-align: center;
 }
 
@@ -20,7 +20,7 @@
   color: var(--shop-primary);
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 0.5rem;
+  margin: 2rem auto 1rem auto;
 }
 
 .astro-shop-subtitle {

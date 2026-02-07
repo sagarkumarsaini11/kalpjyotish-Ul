@@ -26,8 +26,55 @@ const itemVariants = { hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 
 const buttonHoverTap = { hover: { scale: 1.05, transition: { type: 'spring', stiffness: 300 } }, tap: { scale: 0.95 } };
 
 // --- Child Components ---
-const HoroscopeCard = ({ sign, data, type, language }) => ( <motion.div className="horoscope-result-card" initial={{ opacity: 0, y: 30, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -30, scale: 0.95 }} transition={{ type: 'spring', duration: 0.6 }}> <h3 className="horoscope-title">{zodiacSigns.find(z => z.name === sign)?.icon} {sign.toUpperCase()} - {type.toUpperCase()} Horoscope</h3> <p className="horoscope-desc">"{language === 'en' ? data?.description : data?.description_hi || 'हिंदी विवरण उपलब्ध नहीं है'}"</p> <div className="horoscope-details"> <motion.div className="detail-box" whileHover={{ scale: 1.08, y: -5 }}>🎯 <span>{language === 'en' ? 'Lucky Number' : 'लकी नंबर'}:</span> <strong>{data?.lucky_number}</strong></motion.div> <motion.div className="detail-box" whileHover={{ scale: 1.08, y: -5 }}>🌈 <span>{language === 'en' ? 'Color' : 'रंग'}:</span> <strong>{data?.color}</strong></motion.div> <motion.div className="detail-box" whileHover={{ scale: 1.08, y: -5 }}>😌 <span>{language === 'en' ? 'Mood' : 'मूड'}:</span> <strong>{data?.mood}</strong></motion.div> <motion.div className="detail-box" whileHover={{ scale: 1.08, y: -5 }}>📅 <span>{language === 'en' ? 'Date' : 'तारीख'}:</span> <strong>{data?.date}</strong></motion.div> </div> </motion.div> );
-const LockPopup = ({ onClose, language }) => ( <motion.div className="popup-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}> <motion.div className="popup-content" initial={{ scale: 0.7, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.7, opacity: 0 }} transition={{ type: 'spring' }}> <h4>{language === 'en' ? 'Sign Locked' : 'राशि लॉक है'}</h4> <p>{language === 'en' ? 'You have already selected a sign for this name. Please try a different one after 24 hours.' : 'आप इस नाम के लिए पहले ही एक राशि चुन चुके हैं। कृपया 24 घंटे के बाद दूसरी राशि चुनें।'}</p> <motion.button onClick={onClose} {...buttonHoverTap}>{language === 'en' ? 'Okay' : 'ठीक है'}</motion.button> </motion.div> </motion.div> );
+const HoroscopeCard = (
+  { sign, data, type, language }) => (
+  <motion.div className="horoscope-result-card"
+    initial={{ opacity: 0, y: 30, scale: 0.95 }}
+    animate={{ opacity: 1, y: 0, scale: 1 }}
+    exit={{ opacity: 0, y: -30, scale: 0.95 }}
+    transition={{ type: 'spring', duration: 0.6 }}>
+    <h3 className="horoscope-title">
+      {zodiacSigns.find(z => z.name === sign)?.icon}
+      {sign.toUpperCase()} - {type.toUpperCase()} Horoscope
+    </h3>
+    <p className="horoscope-desc">"{language === 'en' ? data?.description : data?.description_hi || 'हिंदी विवरण उपलब्ध नहीं है'}"</p>
+    <div className="horoscope-details">
+      <motion.div className="detail-box" whileHover={{ scale: 1.08, y: -5 }}>
+        <span className="detail-icon">🎯</span>
+        <span className='detail-text'>
+          {language === 'en' ? 'Lucky Number' : 'लकी नंबर'}:
+        </span>
+        <strong>{data?.lucky_number}</strong>
+      </motion.div>
+      <motion.div className="detail-box" whileHover={{ scale: 1.08, y: -5 }}>
+        <span className="detail-icon">🌈 </span>
+
+        <span className='detail-text'>{language === 'en' ? 'Color' : 'रंग'}:</span>
+        <strong>{data?.color}</strong>
+      </motion.div>
+
+      <motion.div className="detail-box"
+        whileHover={{ scale: 1.08, y: -5 }}>
+        <span className="detail-icon">😌 </span>
+        <span className='detail-text'>
+          {language === 'en' ? 'Mood' : 'मूड'}:
+        </span>
+        <strong>{data?.mood}</strong>
+      </motion.div>
+
+      <motion.div className="detail-box"
+        whileHover={{ scale: 1.08, y: -5 }}>
+        <span className="detail-icon">📅 </span>
+        <span className='detail-text'>
+          {language === 'en' ? 'Date' : 'तारीख'}:
+        </span>
+        <strong>{data?.date}</strong>
+      </motion.div>
+    </div>
+  </motion.div>
+);
+
+const LockPopup = ({ onClose, language }) => (<motion.div className="popup-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}> <motion.div className="popup-content" initial={{ scale: 0.7, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.7, opacity: 0 }} transition={{ type: 'spring' }}> <h4>{language === 'en' ? 'Sign Locked' : 'राशि लॉक है'}</h4> <p>{language === 'en' ? 'You have already selected a sign for this name. Please try a different one after 24 hours.' : 'आप इस नाम के लिए पहले ही एक राशि चुन चुके हैं। कृपया 24 घंटे के बाद दूसरी राशि चुनें।'}</p> <motion.button onClick={onClose} {...buttonHoverTap}>{language === 'en' ? 'Okay' : 'ठीक है'}</motion.button> </motion.div> </motion.div>);
 
 // New component to guide the user initially
 const WelcomeMessage = ({ language }) => (
@@ -102,7 +149,7 @@ const DailyHoroscope = () => {
       console.log("Please enter a name first to select a sign.");
       return;
     }
-    
+
     const normalizedName = name.trim().toLowerCase();
     const users = JSON.parse(localStorage.getItem(USERS_STORAGE_KEY)) || {};
     const userData = users[normalizedName];

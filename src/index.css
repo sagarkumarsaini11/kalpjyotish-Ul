@@ -1,8 +1,9 @@
 /* src/index.css */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Philosopher:wght@400;700&display=swap');
+
 
 :root {
-  --bg-color: #fffaf3; /* Warm white with slight cream tone */
+  --bg-color: #000000; /* Warm white with slight cream tone */
   --primary-color: #b8860b; /* Deep elegant gold */
   --secondary-color: #ffd700; /* Bright golden yellow */
   --text-color: #2b210e; /* Deep brown for contrast */
@@ -31,4 +32,7 @@ a {
 
 a:hover {
   color: var(--secondary-color);
+}
+h1, h2 {
+  font-family: 'Philosopher', serif;
 }

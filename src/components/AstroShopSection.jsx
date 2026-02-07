@@ -1,9 +1,8 @@
-// src/components/AstroShopSection.jsx
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import './AstroShopSection.css'; // We will create this file next
+import './AstroShopSection.css';
+import Footer from './Footer';
 
 // --- Card Sub-Component with 3D Tilt Effect ---
 const ProductCard = ({ product }) => {
@@ -17,7 +16,7 @@ const ProductCard = ({ product }) => {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-    
+
     // Adjust sensitivity of the tilt
     setRotate({ x: -y / 20, y: x / 15 });
   };
@@ -44,8 +43,8 @@ const ProductCard = ({ product }) => {
       }}
     >
       <div className="product-card">
-        <div 
-          className="card-image-bg" 
+        <div
+          className="card-image-bg"
           style={{ backgroundImage: `url(${product.images[0]})` }}
         ></div>
         <div className="card-overlay-gradient"></div>
@@ -104,26 +103,29 @@ const AstroShopSection = () => {
   }
 
   return (
-    <section className="astro-shop-section">
-      <h2 className="astro-shop-main-title">Astro Shop</h2>
-      <p className="astro-shop-subtitle">Authentic Gemstones, Yantras, and Pooja Essentials</p>
+    <>
+      <section className="astro-shop-section">
+        <h2 className="astro-shop-main-title">Astro Shop</h2>
+        <p className="astro-shop-subtitle">Authentic Gemstones, Yantras, and Pooja Essentials</p>
 
-      {loading ? (
-        <div className="loader-container"><div className="loader"></div></div>
-      ) : (
-        <motion.div 
-          className="product-grid"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          {products.map(product => (
-            <ProductCard key={product._id} product={product} />
-          ))}
-        </motion.div>
-      )}
-    </section>
+        {loading ? (
+          <div className="loader-container"><div className="loader"></div></div>
+        ) : (
+          <motion.div
+            className="product-grid"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+          >
+            {products.map(product => (
+              <ProductCard key={product._id} product={product} />
+            ))}
+          </motion.div>
+        )}
+      </section>
+      <Footer />
+    </>
   );
 };
 

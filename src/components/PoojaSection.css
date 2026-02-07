@@ -1,6 +1,3 @@
-/* src/components/PoojaSection.css */
-
-/* Define the color palette */
 :root {
   --pooja-bg: #f5f5f5;
   --pooja-card-bg: #222222;
@@ -11,7 +8,8 @@
 
 .pooja-section {
   padding: 5rem 2rem;
-  background-color: var(--pooja-bg);
+  /* background-color: var(--pooja-bg); */
+  background-color: #000000;
   text-align: center;
   min-height: 100vh;
 }
@@ -32,7 +30,6 @@
   opacity: 0.8;
 }
 
-/* --- Tab Styling --- */
 .tabs-container {
   display: flex;
   justify-content: center;
@@ -93,32 +90,24 @@
   width: 100%;
   /* --- MODIFIED: Add a dark background to the image area --- */
   background-color: #f5f5f5;
-  flex-shrink: 0; /* Prevents the image container from shrinking */
-  
+  flex-shrink: 0;
+  /* Prevents the image container from shrinking */
+
 }
 
 .pooja-image {
   width: 100%;
   height: 100%;
-  /* --- MODIFIED: Use 'contain' to ensure the whole image is visible --- */
   /* object-fit: contain; */
   transition: transform 0.4s ease;
 }
-/* .pooja-card:hover .pooja-image {
-    transform: scale(1.08);
-} */
 
-/* Remove the overlay as it's not needed with 'contain' */
-/* .pooja-image-overlay { ... } */
-
-
-/* --- MODIFIED: Use Flexbox for perfect content alignment --- */
 .pooja-content {
   padding: 1.5rem;
   text-align: left;
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* Allows this container to grow and fill available space */
+  flex-grow: 1;
 }
 
 .pooja-name {
@@ -133,11 +122,11 @@
   color: var(--pooja-text);
   line-height: 1.6;
   margin-bottom: 1.5rem;
-  /* --- MODIFIED: Let the description take up available space --- */
-  flex-grow: 1; 
+  flex-grow: 1;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* Limit text to 3 lines */
+  -webkit-line-clamp: 3;
+  line-clamp: 1;
   -webkit-box-orient: vertical;
 }
 
@@ -160,7 +149,33 @@
 }
 
 /* --- Loader & Error --- */
-.loader-container { display: flex; justify-content: center; align-items: center; min-height: 300px; }
-.loader { border: 5px solid rgba(255, 255, 255, 0.2); border-top: 5px solid var(--pooja-primary); border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; }
-@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-.error-message { color: #ff6b6b; font-size: 1.2rem; }
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.loader {
+  border: 5px solid rgba(255, 255, 255, 0.2);
+  border-top: 5px solid var(--pooja-primary);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 1.2rem;
+}

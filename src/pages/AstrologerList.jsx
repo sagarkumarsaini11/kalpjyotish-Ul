@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./AstrologerList.css";
+import Footer from '../components/Footer';
 
 /* =====================================================
    PAYMENT MODAL
@@ -141,6 +142,7 @@ const AstrologerList = () => {
   return (
     <>
       <div className="astrologer-list-container">
+        <h1 className="astro-heading">Our Astrologers</h1>
         <div className="astro-grid">
           {astrologers.map((astro) => (
             <div key={astro._id} className="astro-card">
@@ -199,6 +201,7 @@ const AstrologerList = () => {
           <ChatPopup astro={chatAstro} onClose={() => setChatAstro(null)} />
         )}
       </AnimatePresence>
+      <Footer />
     </>
   );
 };

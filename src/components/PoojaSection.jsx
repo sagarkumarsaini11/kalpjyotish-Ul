@@ -86,16 +86,25 @@ const PoojaSection = () => {
       {/* ✅ INTRO SCREEN */}
       {!showSection && (
         <div
-          className="container"
+          className="container-pooja"
           style={{
             display: "flex",
+            width: "full",
             justifyContent: "center",
             alignItems: "center",
             height: "100vh",
             marginTop: "20px",
+            backgroundColor: "#000000"
           }}
         >
-          <div style={{ textAlign: "center", height: "400px", width: "400px" }}>
+          <div style={
+            {
+              textAlign: "center",
+              height: "400px",
+              width: "400px",
+              padding: "15px",
+            }
+          }>
             <img
               src="/src/assets/navGarahPujan.webp"
               alt="NAVGRAH PUJAN"
@@ -205,7 +214,7 @@ const PoojaSection = () => {
           )}
         </section>
       )}
-      <Footer/>
+      <Footer />
     </>
   );
 };

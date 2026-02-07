@@ -1,10 +1,7 @@
-// src/components/ConsultationTopics.jsx
-
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { consultationTopicsData } from '../data/consultationData';
-import './ConsultationTopics.css'; // Imports the new styles
+import './ConsultationTopics.css'; 
 
 const ConsultationTopics = () => {
   return (

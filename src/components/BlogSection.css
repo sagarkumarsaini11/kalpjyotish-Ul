@@ -1,8 +1,8 @@
 /* src/components/BlogSection.css */
 .blog-section {
     padding: 6rem 0;
-    background-color: var(--bg-color);
-    overflow: hidden; /* Important for containing the scrollable area */
+    background-color: #000000;
+    overflow: hidden;
 }
 
 .container {
@@ -28,7 +28,7 @@
 
 /* --- Blog Card Styling (Remains mostly the same) --- */
 .blog-card {
- background: #E05320;
+    background: #610161;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -111,15 +111,34 @@
     transform: translateX(5px);
 }
 
-/* Swiper styles remain the same */
 .blog-card .swiper-button-next,
 .blog-card .swiper-button-prev {
-    color: white; background-color: rgba(0, 0, 0, 0.3); width: 30px; height: 30px; border-radius: 50%; transition: all 0.3s ease;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
 }
-.blog-card .swiper-button-next:hover, .blog-card .swiper-button-prev:hover { background-color: rgba(0, 0, 0, 0.6); }
-.blog-card .swiper-button-next::after, .blog-card .swiper-button-prev::after { font-size: 14px; font-weight: 900; }
-.blog-card .swiper-pagination-progressbar { background: rgba(255, 255, 255, 0.25); }
-.blog-card .swiper-pagination-progressbar-fill { background: var(--primary-color); }
+
+.blog-card .swiper-button-next:hover,
+.blog-card .swiper-button-prev:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.blog-card .swiper-button-next::after,
+.blog-card .swiper-button-prev::after {
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.blog-card .swiper-pagination-progressbar {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.blog-card .swiper-pagination-progressbar-fill {
+    background: var(--primary-color);
+}
 
 
 /* ===============================================
@@ -140,41 +159,54 @@
     .blog-section-title {
         font-size: 2rem;
         margin-bottom: 2.5rem;
-        padding: 0 1rem; /* Add padding back to the title only */
+        padding: 0 1rem;
+        /* Add padding back to the title only */
     }
 
     /* KEY CHANGE: Transform the grid into a scrollable flex container */
     .blog-grid {
-        display: flex; /* Switch from grid to flex */
-        overflow-x: auto; /* Enable horizontal scrolling */
-        scroll-snap-type: x mandatory; /* The magic for snapping */
+        display: flex;
+        /* Switch from grid to flex */
+        overflow-x: auto;
+        /* Enable horizontal scrolling */
+        scroll-snap-type: x mandatory;
+        /* The magic for snapping */
         scroll-behavior: smooth;
-        gap: 1rem; /* Space between cards */
-        
+        gap: 1rem;
+        /* Space between cards */
+
         /* Add padding to show a "peek" of the next card */
         padding: 0 1rem 1rem 1rem;
 
         /* Hide the scrollbar for a clean, app-like look */
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
     }
+
     .blog-grid::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, and Opera */
+        display: none;
+        /* Chrome, Safari, and Opera */
     }
 
     /* Adjust each card for the new flex layout */
     .blog-card {
-        flex: 0 0 90%; /* Each card takes up 90% of the width. Change to 100% for full-screen cards. */
-        scroll-snap-align: center; /* Snap the center of the card to the center of the viewport */
+        flex: 0 0 90%;
+        /* Each card takes up 90% of the width. Change to 100% for full-screen cards. */
+        scroll-snap-align: center;
+        /* Snap the center of the card to the center of the viewport */
     }
-    
+
     /* Minor typography adjustments for mobile cards */
     .blog-card-content {
         padding: 1.25rem;
     }
+
     .blog-card-title a {
         font-size: 1.2rem;
     }
+
     .blog-card-excerpt {
         font-size: 0.9rem;
     }
